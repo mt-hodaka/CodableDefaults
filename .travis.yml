@@ -1,0 +1,13 @@
+language: objective-c
+osx_image: xcode9
+before_install:
+  - brew update
+  - brew outdated swiftlint || brew upgrade swiftlint
+script:
+  - swiftlint
+script:
+  - xcodebuild test -scheme CodableDefaults -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X'
+  - xcodebuild test -scheme CodableDefaults -destination 'platform=OS X'
+  - xcodebuild test -scheme CodableDefaults -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
+notifications:
+  email: false
