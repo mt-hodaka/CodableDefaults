@@ -1,0 +1,6 @@
+included:
+  - Sources
+identifier_name:
+  min_length: 0
+disabled_rules:
+  - file_length

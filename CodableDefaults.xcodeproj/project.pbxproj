@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6A785F0B2003FC4600EE7F92 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6A785F0E2003FC4600EE7F92 /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+				6A785F0F2003FC4A00EE7F92 /* Run Script */,
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		6A785F012003FA2900EE7F92 /* DefaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A785F002003FA2900EE7F92 /* DefaultStore.swift */; };
 		6A785F052003FA9900EE7F92 /* DefaultStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A785F042003FA9900EE7F92 /* DefaultStoreTests.swift */; };
@@ -128,6 +142,11 @@
 			attributes = {
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
+					6A785F0B2003FC4600EE7F92 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 4NV8KK5CH4;
+						ProvisioningStyle = Automatic;
+					};
 					"CodableDefaults::CodableDefaults" = {
 						LastSwiftMigration = 0920;
 					};
@@ -150,9 +169,27 @@
 			targets = (
 				"CodableDefaults::CodableDefaults" /* CodableDefaults */,
 				"CodableDefaults::CodableDefaultsTests" /* CodableDefaultsTests */,
+				6A785F0B2003FC4600EE7F92 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A785F0F2003FC4A00EE7F92 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_26 /* Sources */ = {
@@ -182,6 +219,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6A785F0C2003FC4600EE7F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NV8KK5CH4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6A785F0D2003FC4600EE7F92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NV8KK5CH4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		OBJ_24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -323,6 +378,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6A785F0E2003FC4600EE7F92 /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A785F0C2003FC4600EE7F92 /* Debug */,
+				6A785F0D2003FC4600EE7F92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		OBJ_2 /* Build configuration list for PBXProject "CodableDefaults" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
