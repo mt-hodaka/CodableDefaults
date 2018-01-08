@@ -9,5 +9,7 @@ script:
   - xcodebuild test -scheme CodableDefaults -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X'
   - xcodebuild test -scheme CodableDefaults -destination 'platform=OS X'
   - xcodebuild test -scheme CodableDefaults -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   email: false
