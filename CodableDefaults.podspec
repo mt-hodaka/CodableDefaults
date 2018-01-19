@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CodableDefaults"
-  s.version      = "0.0.1"
+  s.version      = "0.1"
   s.summary      = "Micro library for UserDefaults with Codable."
   s.homepage     = "https://github.com/mt-hodaka"
   s.license      = { :type => "MIT", :file => "LICENSE" }
