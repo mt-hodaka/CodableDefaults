@@ -60,8 +60,15 @@ public struct DefaultStore<ValueType: Codable> {
             return userDefaults.url(forKey: key) as? ValueType
         }
 
-        return userDefaults.data(forKey: key).flatMap {
-            try? decoder.decode(ValueType.self, from: $0)
+        guard let data = userDefaults.data(forKey: key) else {
+            return nil
+        }
+
+        do {
+            return try decoder.decode(ValueType.self, from: data)
+        } catch {
+            assertionFailure("\(dump(error))")
+            return nil
         }
     }
 
@@ -85,9 +92,7 @@ public struct DefaultStore<ValueType: Codable> {
             let encoded = try encoder.encode(value)
             userDefaults.set(encoded, forKey: key)
         } catch {
-            #if DEBUG
-                dump(error)
-            #endif
+            assertionFailure("\(dump(error))")
         }
     }
 
@@ -111,9 +116,7 @@ public struct DefaultStore<ValueType: Codable> {
             let encoded = try encoder.encode(value)
             userDefaults.register(defaults: [key: encoded])
         } catch {
-            #if DEBUG
-                dump(error)
-            #endif
+            assertionFailure("\(dump(error))")
         }
     }
 }
